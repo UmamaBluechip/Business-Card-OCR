@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card Reader</title>
+</head>
+<body>
+    <h1>Business Card OCR</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if details %}
+
+    <h2>Transformed Business Card:</h2>
+    <img src="{{ image }}" alt="Transformed Business Card">
+    
+    <h2>Extracted Details:</h2>
+    <p><strong>Phone Numbers:</strong> {{ details['phone_numbers'] }}</p>
+    <p><strong>Emails:</strong> {{ details['emails'] }}</p>
+    <p><strong>Names:</strong> {{ details['names'] }}</p>
+    {% endif %}
+</body>
+</html>
